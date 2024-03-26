@@ -1,21 +1,7 @@
 ﻿using FastEndpoints;
-using Microsoft.AspNetCore.Builder;
 
 namespace RiverBooks.Books
 {
-    public static class BookEndpoints
-    {
-        public static void MapBookEndpoints(this WebApplication app)
-        {
-            app.MapGet("/books", (IBookService service) => service.GetBooksAsync());
-        }
-    }
-
-    public class GetBooksResponse
-    {
-        public List<BookDto> Books { get; set; }
-    }
-
     internal class ListBooksEndpoint(IBookService bookService) : EndpointWithoutRequest<GetBooksResponse>
     {
         public override void Configure()

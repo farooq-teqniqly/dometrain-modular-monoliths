@@ -18,5 +18,4 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseFastEndpoints();
-app.MapBookEndpoints();
 app.Run();
