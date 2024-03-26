@@ -3,26 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Web", "RiverBooks.Web\RiverBooks.Web.csproj", "{0372EADD-176D-474A-B3D8-242DE90E13C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiverBooks.Books", "RiverBooks.Books\RiverBooks.Books.csproj", "{3C379BC4-7153-4EFC-A02F-5BCE387D8472}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Books", "RiverBooks.Books\RiverBooks.Books.csproj", "{6EEF2906-BD75-4745-9B42-F588BA8A5DF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiverBooks.Web", "RiverBooks.Web\RiverBooks.Web.csproj", "{6C08B267-466C-4172-B63B-AD47B47D4A4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C379BC4-7153-4EFC-A02F-5BCE387D8472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C379BC4-7153-4EFC-A02F-5BCE387D8472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C379BC4-7153-4EFC-A02F-5BCE387D8472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C379BC4-7153-4EFC-A02F-5BCE387D8472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C08B267-466C-4172-B63B-AD47B47D4A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C08B267-466C-4172-B63B-AD47B47D4A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C08B267-466C-4172-B63B-AD47B47D4A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C08B267-466C-4172-B63B-AD47B47D4A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0372EADD-176D-474A-B3D8-242DE90E13C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0372EADD-176D-474A-B3D8-242DE90E13C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0372EADD-176D-474A-B3D8-242DE90E13C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0372EADD-176D-474A-B3D8-242DE90E13C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EEF2906-BD75-4745-9B42-F588BA8A5DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EEF2906-BD75-4745-9B42-F588BA8A5DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EEF2906-BD75-4745-9B42-F588BA8A5DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EEF2906-BD75-4745-9B42-F588BA8A5DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {836BF003-86E5-4DCB-814B-D2868883F375}
 	EndGlobalSection
 EndGlobal
