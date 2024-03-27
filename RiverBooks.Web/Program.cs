@@ -19,3 +19,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseFastEndpoints();
 app.Run();
+
+public partial class Program
+{
+}
