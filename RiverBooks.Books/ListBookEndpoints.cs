@@ -10,10 +10,10 @@ internal class ListBooksEndpoint(IBookService bookService) : EndpointWithoutRequ
         AllowAnonymous();
     }
 
-    public override async Task HandleAsync(CancellationToken cancellationToken = default)
+    public override async Task HandleAsync(CancellationToken ct)
     {
         var books = await bookService.GetBooksAsync();
 
-        await SendAsync(new GetBooksResponse { Books = books.ToList() }, cancellation: cancellationToken);
+        await SendAsync(new GetBooksResponse { Books = books.ToList() }, cancellation: ct);
     }
 }
