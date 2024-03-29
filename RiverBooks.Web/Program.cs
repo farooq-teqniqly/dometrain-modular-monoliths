@@ -1,4 +1,4 @@
-using FastEndpoints;
+﻿using FastEndpoints;
 using RiverBooks.Books;
 
 var builder = WebApplication.CreateBuilder(args);
