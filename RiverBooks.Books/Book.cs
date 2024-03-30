@@ -22,3 +22,18 @@ internal class Book
         Price = Guard.Against.Negative(newPrice);
     }
 }
+
+internal interface IBookRepository : IReadOnlyBookRepository
+{
+    Task Add(Book book);
+    Task Delete(Book book);
+    Task SaveChanges();
+
+}
+
+internal interface IReadOnlyBookRepository
+{
+    Task<Book?> GetById(Guid id);
+    Task<List<Book>> List();
+}
+
