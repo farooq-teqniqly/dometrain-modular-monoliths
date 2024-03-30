@@ -104,7 +104,7 @@ csharp_preferred_modifier_order = public,private,protected,internal,static,exter
 
 # Naming rules
 
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = warning
+dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = error
 dotnet_naming_rule.suffix_async_should_be_asyncsuffix.symbols = suffix_async
 dotnet_naming_rule.suffix_async_should_be_asyncsuffix.style = asyncsuffix
 
