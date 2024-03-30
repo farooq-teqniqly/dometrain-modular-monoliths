@@ -1,4 +1,4 @@
-using FastEndpoints;
+﻿using FastEndpoints;
 using FluentAssertions;
 using NSubstitute;
 
@@ -13,7 +13,7 @@ public class BookEndpointTests
     {
         _fakeBookService.GetBooksAsync().Returns(new List<BookDto>
         {
-            new(Guid.NewGuid(), "Book 1", "Author 1"), new(Guid.NewGuid(), "Book 1", "Author 1")
+            new(Guid.NewGuid(), "Book 1", "Author 1", 1m), new(Guid.NewGuid(), "Book 1", "Author 1", 1m)
         });
 
         var endpoint = Factory.Create<ListBooksEndpoint>(_fakeBookService);

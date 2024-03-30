@@ -2,15 +2,16 @@
 
 internal class BookService : IBookService
 {
+    private readonly IBookRepository _bookRepository;
+
+    public BookService(IBookRepository bookRepository)
+    {
+        _bookRepository = bookRepository;
+    }
     public async Task<IEnumerable<BookDto>> GetBooksAsync()
     {
-        await Task.Delay(100);
+        var books = await _bookRepository.List();
 
-        return new[]
-        {
-            new BookDto(Guid.NewGuid(), "1984", "George Orwell"),
-            new BookDto(Guid.NewGuid(), "Brave New World", "Aldous Huxley"),
-            new BookDto(Guid.NewGuid(), "Fahrenheit 451", "Ray Bradbury")
-        };
+        return books.Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price));
     }
 }
