@@ -1,4 +1,4 @@
-﻿using FastEndpoints;
+using FastEndpoints;
 using FluentAssertions;
 using NSubstitute;
 
@@ -11,7 +11,7 @@ public class BookEndpointTests
     [Fact]
     public async Task Can_Get_Books()
     {
-        _fakeBookService.GetBooksAsync().Returns(new List<BookDto>
+        _fakeBookService.ListBooks().Returns(new List<BookDto>
         {
             new(Guid.NewGuid(), "Book 1", "Author 1", 1m), new(Guid.NewGuid(), "Book 1", "Author 1", 1m)
         });
