@@ -1,23 +1,17 @@
 ﻿namespace RiverBooks.Books;
 
-internal class BookService : IBookService
+internal class BookService(IBookRepository bookRepository) : IBookService
 {
-    private readonly IBookRepository _bookRepository;
-
-    public BookService(IBookRepository bookRepository)
-    {
-        _bookRepository = bookRepository;
-    }
     public async Task<IEnumerable<BookDto>> ListBooks()
     {
-        var books = await _bookRepository.List();
+        var books = await bookRepository.List();
 
         return books.Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price));
     }
 
     public async Task<BookDto> GetBookById(Guid id)
     {
-        var book = await _bookRepository.GetById(id);
+        var book = await bookRepository.GetById(id);
 
         // #TODO: Handle case where book does not exist.
 
@@ -27,29 +21,29 @@ internal class BookService : IBookService
     public async Task CreateBook(BookDto newBook)
     {
         var book = new Book(newBook.Id, newBook.Title, newBook.Author, newBook.Price);
-        await _bookRepository.Add(book);
-        await _bookRepository.SaveChanges();
+        await bookRepository.Add(book);
+        await bookRepository.SaveChanges();
     }
 
     public async Task DeleteBook(Guid id)
     {
-        var bookToDelete = await _bookRepository.GetById(id);
+        var bookToDelete = await bookRepository.GetById(id);
 
         if (bookToDelete is null)
         {
             return;
         }
 
-        await _bookRepository.Delete(bookToDelete);
-        await _bookRepository.SaveChanges();
+        await bookRepository.Delete(bookToDelete);
+        await bookRepository.SaveChanges();
     }
 
     public async Task UpdateBookPrice(Guid bookId, decimal newPrice)
     {
-        var book = await _bookRepository.GetById(bookId);
+        var book = await bookRepository.GetById(bookId);
 
         // #TODO: Handle case where book does not exist.
         book!.UpdatePrice(newPrice);
-        await _bookRepository.SaveChanges();
+        await bookRepository.SaveChanges();
     }
 }
