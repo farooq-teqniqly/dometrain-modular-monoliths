@@ -1,4 +1,6 @@
 ﻿using Ardalis.GuardClauses;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 
 namespace RiverBooks.Books;
 
@@ -21,4 +23,9 @@ internal class Book
     {
         Price = Guard.Against.Negative(newPrice);
     }
+}
+
+public class BookDbContext : DbContext
+{
+
 }
