@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using Ardalis.GuardClauses;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,9 +7,9 @@ namespace RiverBooks.Books;
 
 internal class Book
 {
-    public Guid Id { get; private set; }
-    public string Title { get; private set; }
-    public string Author { get; private set; }
+    public Guid Id { get; private init; }
+    public string Title { get; private init; }
+    public string Author { get; private init; }
     public decimal Price { get; private set; }
 
     internal Book(Guid id, string title, string author, decimal price)
@@ -27,14 +26,9 @@ internal class Book
     }
 }
 
-public class BookDbContext : DbContext
+public class BookDbContext(DbContextOptions options) : DbContext(options)
 {
     internal DbSet<Book> Books { get; set; } = null!;
-
-    public BookDbContext(DbContextOptions options) : base(options)
-    {
-        
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
