@@ -104,10 +104,6 @@ csharp_preferred_modifier_order = public,private,protected,internal,static,exter
 
 # Naming rules
 
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = error
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.symbols = suffix_async
-dotnet_naming_rule.suffix_async_should_be_asyncsuffix.style = asyncsuffix
-
 # Symbol specifications
 
 dotnet_naming_symbols.suffix_async.applicable_kinds = method
@@ -117,7 +113,6 @@ dotnet_naming_symbols.suffix_async.required_modifiers = async
 # Naming styles
 
 dotnet_naming_style.asyncsuffix.required_prefix = 
-dotnet_naming_style.asyncsuffix.required_suffix = Async
 dotnet_naming_style.asyncsuffix.word_separator = 
 dotnet_naming_style.asyncsuffix.capitalization = pascal_case
 # Expression-level preferences
