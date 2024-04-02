@@ -1,6 +1,7 @@
 ﻿using FastEndpoints;
 using RiverBooks.Books;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
