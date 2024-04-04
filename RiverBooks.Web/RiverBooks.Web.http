@@ -9,3 +9,16 @@ GET {{RiverBooks.Web_HostAddress}}/api/books/ec5785b5-ae50-4be4-8f58-35190fcbed9
 Accept: application/json
 
 ###
+
+POST {{RiverBooks.Web_HostAddress}}/api/books/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "980b0ce7-5d4e-40f2-95e0-d5e6039f788a",
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "price": 14.99
+}
+
+###

@@ -53,4 +53,32 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
         result.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
     }
+
+    [Fact]
+    public async Task Can_Create_Book()
+    {
+        var request = new CreateBookRequest { Id = Guid.NewGuid(),  Author = "Stephen King", Title = "Carrie", Price = 5.99m };
+        
+        var (result, response) =
+            await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
+
+        result.StatusCode.Should().Be(HttpStatusCode.Created);
+        result.Headers.Location.Should().Be($"/api/books/{response.Id}");
+
+        response.Id.Should().Be(request.Id);
+        response.Author.Should().Be(request.Author);
+        response.Title.Should().Be(request.Title);
+        response.Price.Should().Be(request.Price);
+    }
+
+    [Fact]
+    public async Task Creating_Book_Without_Id_Returns_Bad_Request()
+    {
+        var request = new CreateBookRequest { Author = "Stephen King", Title = "Carrie", Price = 5.99m };
+
+        var (result, response) =
+            await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
+
+        result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
 }
