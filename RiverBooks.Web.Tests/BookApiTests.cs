@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using FastEndpoints;
 using FastEndpoints.Testing;
 using FluentAssertions;
@@ -13,6 +13,6 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     {
         var (result, response) = await fixture.Client.GETAsync<ListBooksEndpoint, GetBooksResponse>();
         result.StatusCode.Should().Be(HttpStatusCode.OK);
-        response.Books.Count.Should().Be(3);
+        response.Books.Should().BeEquivalentTo(BookConfiguration.SeedBooks);
     }
 }
