@@ -9,13 +9,11 @@ internal class BookService(IBookRepository bookRepository) : IBookService
         return books.Select(b => new BookDto(b.Id, b.Title, b.Author, b.Price));
     }
 
-    public async Task<BookDto> GetBookById(Guid id)
+    public async Task<BookDto?> GetBookById(Guid id)
     {
         var book = await bookRepository.GetById(id);
 
-        // #TODO: Handle case where book does not exist.
-
-        return new BookDto(book!.Id, book.Title, book.Author, book.Price);
+        return book is null ? default : new BookDto(book!.Id, book.Title, book.Author, book.Price);
     }
 
     public async Task CreateBook(BookDto newBook)
