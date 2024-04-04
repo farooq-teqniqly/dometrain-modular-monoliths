@@ -6,7 +6,7 @@ internal class GetBookByIdEndpoint(IBookService bookService) : Endpoint<GetBookB
 {
     public override void Configure()
     {
-        Get("/api/books/{Id}");
+        Get("/api/books/{id}");
         AllowAnonymous();
     }
 

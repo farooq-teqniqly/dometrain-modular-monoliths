@@ -6,7 +6,7 @@ internal class DeleteBookEndpoint(IBookService bookService) : Endpoint<DeleteBoo
 {
     public override void Configure()
     {
-        Delete("/api/books/{Id}");
+        Delete("/api/books/{id}");
         AllowAnonymous();
     }
 

@@ -6,7 +6,7 @@ internal class UpdateBookPriceEndpoint(IBookService bookService) : Endpoint<Upda
 {
     public override void Configure()
     {
-        Put("/api/books/{Id}");
+        Put("/api/books/{id}");
         AllowAnonymous();
     }
 
