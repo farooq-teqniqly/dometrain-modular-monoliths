@@ -22,3 +22,8 @@ Content-Type: application/json
 }
 
 ###
+
+DELETE {{RiverBooks.Web_HostAddress}}/api/books/ec5785b5-ae50-4be4-8f58-35190fcbed9f
+Accept: application/json
+
+###
