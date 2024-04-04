@@ -43,7 +43,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     {
         var id = new Guid("aaa785b5-ae50-4be4-8f58-35190fcbed9f");
 
-        var (result, response) =
+        var (result, _) =
             await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(
                 new GetBookByIdRequest()
                 {
@@ -76,7 +76,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     {
         var request = new CreateBookRequest { Author = "Stephen King", Title = "Carrie", Price = 5.99m };
 
-        var (result, response) =
+        var (result, _) =
             await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
 
         result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
