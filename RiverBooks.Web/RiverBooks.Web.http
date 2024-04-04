@@ -27,3 +27,13 @@ DELETE {{RiverBooks.Web_HostAddress}}/api/books/ec5785b5-ae50-4be4-8f58-35190fcb
 Accept: application/json
 
 ###
+
+PUT {{RiverBooks.Web_HostAddress}}/api/books/7f9680cf-9130-41c4-8b88-252de10df631
+Accept: application/json
+Content-Type: application/json
+
+{
+  "newPrice": 1.23
+}
+
+###

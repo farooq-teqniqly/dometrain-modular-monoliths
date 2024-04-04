@@ -115,6 +115,31 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
 
             deleteResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
-        
+    }
+
+    [Fact]
+    public async Task Can_Update_Book_Price()
+    {
+        var id = new Guid("ec5785b5-ae50-4be4-8f58-35190fcbed9f");
+
+        var (getByIdResult, getByIdResponse) =
+            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(
+                new GetBookByIdRequest() { Id = id });
+
+        getByIdResult.StatusCode.Should().Be(HttpStatusCode.OK);
+
+        var bookToUpdate = getByIdResponse;
+        var updatedPrice = 9.99m;
+
+        var (updateResult, updateResponse) =
+            await fixture.Client.PUTAsync<UpdateBookPriceEndpoint, UpdateBookPriceRequest, BookDto>(
+                new UpdateBookPriceRequest(bookToUpdate.Id, updatedPrice));
+
+        updateResult.StatusCode.Should().Be(HttpStatusCode.OK);
+
+        updateResponse.Price.Should().Be(updatedPrice);
+        updateResponse.Id.Should().Be(bookToUpdate.Id);
+        updateResponse.Title.Should().Be(bookToUpdate.Title);
+        updateResponse.Author.Should().Be(bookToUpdate.Author);
     }
 }
