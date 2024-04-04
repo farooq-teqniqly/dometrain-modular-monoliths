@@ -81,4 +81,40 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
 
         result.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
+
+    [Fact]
+    public async Task Can_Delete_Book()
+    {
+        var request = new CreateBookRequest { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
+
+        var (createResult, _) =
+            await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
+
+        createResult.StatusCode.Should().Be(HttpStatusCode.Created);
+
+        var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(
+            new DeleteBookRequest { Id = request.Id });
+
+        deleteResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
+    }
+
+    [Fact]
+    public async Task Deleting_Is_Idempotent()
+    {
+        var request = new CreateBookRequest { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
+
+        var (createResult, _) =
+            await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
+
+        createResult.StatusCode.Should().Be(HttpStatusCode.Created);
+
+        for (var i = 0; i < 2; i++)
+        {
+            var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(
+                new DeleteBookRequest { Id = request.Id });
+
+            deleteResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+        
+    }
 }
