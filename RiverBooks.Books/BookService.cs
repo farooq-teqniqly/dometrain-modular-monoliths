@@ -13,7 +13,7 @@ internal class BookService(IBookRepository bookRepository) : IBookService
     {
         var book = await bookRepository.GetById(id);
 
-        return book is null ? default : new BookDto(book!.Id, book.Title, book.Author, book.Price);
+        return book is null ? default : new BookDto(book.Id, book.Title, book.Author, book.Price);
     }
 
     public async Task CreateBook(BookDto newBook)
