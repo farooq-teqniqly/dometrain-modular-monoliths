@@ -57,7 +57,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     [Fact]
     public async Task Can_Create_Book()
     {
-        var request = new CreateBookRequest { Id = Guid.NewGuid(),  Author = "Stephen King", Title = "Carrie", Price = 5.99m };
+        var request = new CreateBookRequest(default, default) { Id = Guid.NewGuid(),  Author = "Stephen King", Title = "Carrie", Price = 5.99m };
         
         var (result, response) =
             await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
@@ -74,7 +74,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     [Fact]
     public async Task Creating_Book_Without_Id_Returns_Bad_Request()
     {
-        var request = new CreateBookRequest { Author = "Stephen King", Title = "Carrie", Price = 5.99m };
+        var request = new CreateBookRequest(default, default) { Author = "Stephen King", Title = "Carrie", Price = 5.99m };
 
         var (result, _) =
             await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
@@ -85,7 +85,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     [Fact]
     public async Task Can_Delete_Book()
     {
-        var request = new CreateBookRequest { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
+        var request = new CreateBookRequest(default, default) { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
 
         var (createResult, _) =
             await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
@@ -101,7 +101,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
     [Fact]
     public async Task Deleting_Is_Idempotent()
     {
-        var request = new CreateBookRequest { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
+        var request = new CreateBookRequest(default, default) { Id = Guid.NewGuid(), Author = "Martin Fowler", Title = "Refactoring to Patterns", Price = 34.99m };
 
         var (createResult, _) =
             await fixture.Client.POSTAsync<CreateBookEndpoint, CreateBookRequest, BookDto>(request);
