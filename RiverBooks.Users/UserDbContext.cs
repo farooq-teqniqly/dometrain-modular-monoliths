@@ -12,6 +12,7 @@ internal class UserDbContext(DbContextOptions<UserDbContext> options) : Identity
     {
         modelBuilder.HasDefaultSchema("Users");
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

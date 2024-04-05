@@ -20,6 +20,7 @@ echo "Setup completed successfully."
 
 echo "Running EF Core migration..."
 dotnet ef database update -c BookDbContext -p RiverBooks.Books/RiverBooks.Books.csproj -s RiverBooks.Web/RiverBooks.Web.csproj
+dotnet ef database update -c UserDbContext -p RiverBooks.Users/RiverBooks.Users.csproj -s RiverBooks.Web/RiverBooks.Web.csproj
 
 if [ $? -eq 0 ]; then
     echo "Database updated."
