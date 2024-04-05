@@ -1,4 +1,4 @@
-@RiverBooks.Web_HostAddress = http://localhost:5193
+@RiverBooks.Web_HostAddress = https://localhost:7283
 
 GET {{RiverBooks.Web_HostAddress}}/api/books/
 Accept: application/json
@@ -34,6 +34,17 @@ Content-Type: application/json
 
 {
   "newPrice": 1.23
+}
+
+###
+
+POST {{RiverBooks.Web_HostAddress}}/api/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "farooq@test.com",
+  "password": "P@ssword1!"
 }
 
 ###
