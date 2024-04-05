@@ -27,11 +27,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
         var id = new Guid("ec5785b5-ae50-4be4-8f58-35190fcbed9f");
 
         var (result, response) =
-            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(
-                new GetBookByIdRequest()
-                {
-                    Id = id
-                });
+            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(new GetBookByIdRequest(id));
 
         result.StatusCode.Should().Be(HttpStatusCode.OK);
         response.Should().BeEquivalentTo(BookConfiguration.SeedBooks.Single(b => b.Id == id));
@@ -44,11 +40,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
         var id = new Guid("aaa785b5-ae50-4be4-8f58-35190fcbed9f");
 
         var (result, _) =
-            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(
-                new GetBookByIdRequest()
-                {
-                    Id = id
-                });
+            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(new GetBookByIdRequest(id));
 
         result.StatusCode.Should().Be(HttpStatusCode.NotFound);
 
@@ -110,8 +102,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
         var id = new Guid("ec5785b5-ae50-4be4-8f58-35190fcbed9f");
 
         var (getByIdResult, getByIdResponse) =
-            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(
-                new GetBookByIdRequest() { Id = id });
+            await fixture.Client.GETAsync<GetBookByIdEndpoint, GetBookByIdRequest, BookDto>(new GetBookByIdRequest(id));
 
         getByIdResult.StatusCode.Should().Be(HttpStatusCode.OK);
 

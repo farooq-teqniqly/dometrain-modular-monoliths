@@ -1,6 +1,3 @@
 ﻿namespace RiverBooks.Books;
 
-public class GetBookByIdRequest
-{
-    public Guid Id { get; set; }
-}
+public record GetBookByIdRequest(Guid Id);
