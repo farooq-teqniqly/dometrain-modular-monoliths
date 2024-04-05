@@ -81,8 +81,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
 
         createResult.StatusCode.Should().Be(HttpStatusCode.Created);
 
-        var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(
-            new DeleteBookRequest { Id = request.Id });
+        var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(new DeleteBookRequest(request.Id));
 
         deleteResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
     }
@@ -99,8 +98,7 @@ public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixt
 
         for (var i = 0; i < 2; i++)
         {
-            var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(
-                new DeleteBookRequest { Id = request.Id });
+            var deleteResult = await fixture.Client.DELETEAsync<DeleteBookEndpoint, DeleteBookRequest>(new DeleteBookRequest(request.Id));
 
             deleteResult.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }

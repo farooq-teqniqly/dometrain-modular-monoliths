@@ -21,5 +21,5 @@ internal class BookConfiguration: IEntityTypeConfiguration<Book>
         builder.HasData(GetSampleBookData());
     }
 
-    private static IList<Book> GetSampleBookData() => SeedBooks;
+    private static List<Book> GetSampleBookData() => SeedBooks;
 }
