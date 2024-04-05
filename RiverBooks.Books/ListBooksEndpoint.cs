@@ -14,6 +14,6 @@ internal class ListBooksEndpoint(IBookService bookService) : EndpointWithoutRequ
     {
         var books = await bookService.ListBooks();
 
-        await SendAsync(new GetBooksResponse { Books = books.ToList() }, cancellation: ct);
+        await SendAsync(new GetBooksResponse(books.ToList()), cancellation: ct);
     }
 }
