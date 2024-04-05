@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RiverBooks.Books;
+namespace RiverBooks.Users;
 
-public class BookDbContext(DbContextOptions<BookDbContext> options) : DbContext(options)
+internal class UserDbContext(DbContextOptions<UserDbContext> options) : IdentityDbContext(options)
 {
-    internal DbSet<Book> Books { get; set; } = null!;
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("Books");
+        modelBuilder.HasDefaultSchema("Users");
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
