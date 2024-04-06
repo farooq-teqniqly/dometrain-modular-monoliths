@@ -6,6 +6,7 @@ using RiverBooks.Books;
 
 namespace RiverBooks.Web.Tests;
 
+[Collection("IntegrationTests")]
 public class BookApiTests(ApiTestFixture fixture) : TestBase<ApiTestFixture>
 {
     [Fact]

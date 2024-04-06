@@ -25,10 +25,10 @@ public class ApiTestFixture : AppFixture<Program>
             .Build();
 
         services.AddDbContext<BookDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("BooksConnectionString"), o => o.MigrationsHistoryTable("EFMigrations", "books")));
+            options.UseSqlServer(configuration.GetConnectionString("BooksConnectionString")));
 
         services.AddDbContext<UserDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("UsersConnectionString"), o => o.MigrationsHistoryTable("EFMigrations", "users")));
+            options.UseSqlServer(configuration.GetConnectionString("UsersConnectionString")));
 
         ApplyDatabaseMigrations(services);
     }
