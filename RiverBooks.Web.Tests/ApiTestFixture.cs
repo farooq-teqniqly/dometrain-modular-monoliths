@@ -42,6 +42,6 @@ public class ApiTestFixture : AppFixture<Program>
         var userDbContext = scope.ServiceProvider.GetRequiredService<UserDbContext>();
 
         bookDbContext.Database.Migrate();
-        userDbContext.Database.Migrate();
+        //userDbContext.Database.Migrate();
     }
 }
