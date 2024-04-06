@@ -2,6 +2,4 @@
 
 namespace RiverBooks.Users;
 
-internal class ApplicationUser : IdentityUser
-{
-}
+internal class ApplicationUser : IdentityUser;
