@@ -12,7 +12,7 @@ using RiverBooks.Users;
 namespace RiverBooks.Users.Data.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240405212353_InitialUsers")]
+    [Migration("20240406044538_InitialUsers")]
     partial class InitialUsers
     {
         /// <inheritdoc />
