@@ -23,7 +23,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Start SQL Server container
-        run: docker-compose -f docker-compose.yaml up -d
+        run: docker-compose -f docker-compose.yaml up -d sql
 
       - name: Test
         run: dotnet test --no-build --verbosity normal
