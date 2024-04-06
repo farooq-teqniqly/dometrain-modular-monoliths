@@ -23,7 +23,7 @@ public class ApplicationUser : IdentityUser
         }
 
         existingItem.UpdateQuantity(existingItem.Quantity + cartItem.Quantity);
-
-        //TODO: What to do if other cart item attributes have changed?
+        existingItem.UpdateDescription(existingItem.Description);
+        existingItem.UpdateUnitPrice(existingItem.UnitPrice);
     }
 }

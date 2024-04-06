@@ -27,7 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{83A2F697-7F2D-43C7-9F43-75E857C26EC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Users", "RiverBooks.Users\RiverBooks.Users.csproj", "{F06FB12C-77E8-4608-92CB-CFBD84C005D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiverBooks.Users", "RiverBooks.Users\RiverBooks.Users.csproj", "{F06FB12C-77E8-4608-92CB-CFBD84C005D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverBooks.Books.Contracts", "RiverBooks.Books.Contracts\RiverBooks.Books.Contracts.csproj", "{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F06FB12C-77E8-4608-92CB-CFBD84C005D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F06FB12C-77E8-4608-92CB-CFBD84C005D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F06FB12C-77E8-4608-92CB-CFBD84C005D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{A1A8F7BE-7398-49AB-88AF-540E6C56B4A2} = {3AAA5556-1C62-4D17-82B2-B69F51EED7E4}
 		{83A2F697-7F2D-43C7-9F43-75E857C26EC0} = {3AAA5556-1C62-4D17-82B2-B69F51EED7E4}
 		{F06FB12C-77E8-4608-92CB-CFBD84C005D4} = {83A2F697-7F2D-43C7-9F43-75E857C26EC0}
+		{EEF0CE6A-DBE8-46CF-89E0-39C220B07C91} = {A1A8F7BE-7398-49AB-88AF-540E6C56B4A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {836BF003-86E5-4DCB-814B-D2868883F375}
