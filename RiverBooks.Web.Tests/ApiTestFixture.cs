@@ -25,10 +25,10 @@ public class ApiTestFixture : AppFixture<Program>
             .Build();
 
         services.AddDbContext<BookDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("BooksConnectionString")));
+            options.UseSqlServer(configuration.GetConnectionString("BooksConnectionString"), o => o.MigrationsHistoryTable("EFMigrations", "books")));
 
         services.AddDbContext<UserDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("UsersConnectionString")));
+            options.UseSqlServer(configuration.GetConnectionString("UsersConnectionString"), o => o.MigrationsHistoryTable("EFMigrations", "users")));
 
         ApplyDatabaseMigrations(services);
     }
@@ -42,6 +42,6 @@ public class ApiTestFixture : AppFixture<Program>
         var userDbContext = scope.ServiceProvider.GetRequiredService<UserDbContext>();
 
         bookDbContext.Database.Migrate();
-        //userDbContext.Database.Migrate();
+        userDbContext.Database.Migrate();
     }
 }
