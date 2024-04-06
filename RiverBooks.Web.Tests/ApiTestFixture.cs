@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RiverBooks.Books;
+using RiverBooks.Users;
 
 namespace RiverBooks.Web.Tests;
 
-public class BookApiTestFixture : AppFixture<Program>
+public class ApiTestFixture : AppFixture<Program>
 {
     protected override void ConfigureApp(IWebHostBuilder a)
     {
@@ -26,6 +27,9 @@ public class BookApiTestFixture : AppFixture<Program>
         services.AddDbContext<BookDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("BooksConnectionString")));
 
+        services.AddDbContext<UserDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("UsersConnectionString")));
+
         ApplyDatabaseMigrations(services);
     }
 
@@ -34,7 +38,10 @@ public class BookApiTestFixture : AppFixture<Program>
         var serviceProvider = services.BuildServiceProvider();
 
         using var scope = serviceProvider.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<BookDbContext>();
-        dbContext.Database.Migrate();
+        var bookDbContext = scope.ServiceProvider.GetRequiredService<BookDbContext>();
+        var userDbContext = scope.ServiceProvider.GetRequiredService<UserDbContext>();
+
+        bookDbContext.Database.Migrate();
+        userDbContext.Database.Migrate();
     }
 }

@@ -5,7 +5,7 @@ using FluentAssertions;
 using RiverBooks.Users;
 
 namespace RiverBooks.Web.Tests;
-public class UserApiTests(UserApiTestFixture fixture) : TestBase<UserApiTestFixture>
+public class UserApiTests(ApiTestFixture fixture) : TestBase<ApiTestFixture>
 {
     private readonly dynamic _user = new { Email = "foo@bar.com", Password = "P@ssword1!" };
 

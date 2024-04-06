@@ -6,7 +6,7 @@ using RiverBooks.Books;
 
 namespace RiverBooks.Web.Tests;
 
-public class BookApiTests(BookApiTestFixture fixture) : TestBase<BookApiTestFixture>
+public class BookApiTests(ApiTestFixture fixture) : TestBase<ApiTestFixture>
 {
     [Fact]
     public async Task Can_Get_Books()
