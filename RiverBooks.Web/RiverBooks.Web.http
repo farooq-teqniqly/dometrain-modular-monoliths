@@ -59,3 +59,23 @@ Content-Type: application/json
 }
 
 ###
+
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJmYXJvb3FAdGVzdC5jb20iLCJpYXQiOjE3MTI0MjcyOTgsImV4cCI6MTcxMjQzMDg5OCwibmJmIjoxNzEyNDI3Mjk4fQ.WVMIfsekKecyValeIv_Wkonj7RG1VrrcKf2qG1DQcGQ
+
+GET {{RiverBooks.Web_HostAddress}}/api/cart
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{RiverBooks.Web_HostAddress}}/api/cart/
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "bookId": "7f9680cf-9130-41c4-8b88-252de10df631",
+  "quantity": 1
+}
+
+###

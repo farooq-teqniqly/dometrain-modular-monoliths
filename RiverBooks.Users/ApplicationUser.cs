@@ -44,6 +44,14 @@ public class CartItem
         UnitPrice = Guard.Against.Negative(unitPrice);
     }
 
+    /// <summary>
+    /// Constructor for Entity Framework
+    /// </summary>
+    public CartItem()
+    {
+        
+    }
+
     internal void UpdateQuantity(int newQuantity)
     {
         Quantity = Guard.Against.Negative(newQuantity);
